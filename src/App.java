@@ -1,9 +1,8 @@
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.stream.IntStream;
-
-import org.w3c.dom.ranges.Range;
+import java.util.PriorityQueue;
+import java.util.concurrent.ThreadLocalRandom;
 
 
 public class App {
@@ -17,6 +16,8 @@ public class App {
         System.out.println("Apetecan -> " + iteradores(Apetecan, "a"));
 
         ejercicioArrayDeque();
+
+        ejercicioPatients();
     }
 
 
@@ -54,7 +55,7 @@ public class App {
         return cadena;
     }
 
-    
+
     public static void ejercicioArrayDeque() {
         ArrayDeque<Integer> stack = new ArrayDeque<Integer>();
 
@@ -65,5 +66,22 @@ public class App {
         while (!stack.isEmpty()) {
             System.out.print(stack.pop() + ", ");
         }
+        System.out.println("");
     }
+
+
+    public static void ejercicioPatients() {
+        int nPatients = ThreadLocalRandom.current().nextInt(2, 10 + 1);
+
+        PriorityQueue<Patient> pq = new PriorityQueue<>();
+
+        for (int i = 0; i < nPatients; i++) {
+            int risk = ThreadLocalRandom.current().nextInt(2, 10 + 1);
+            pq.add(new Patient(risk));
+        }
+
+        while (!pq.isEmpty()) {
+            System.out.println("Riesgo: " + pq.poll().risk);
+        }
+    }   
 }
