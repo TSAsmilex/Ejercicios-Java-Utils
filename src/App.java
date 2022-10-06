@@ -40,6 +40,11 @@ public class App {
             }
         }
 
+        cadena = new String();
+        for (var c: cadena_arraylist) {
+            cadena += c;
+        }
+
         return cadena;
     }
 }
