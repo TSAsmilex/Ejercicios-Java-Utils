@@ -1,7 +1,10 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
-import javax.swing.text.html.HTMLDocument.Iterator;
+import org.w3c.dom.ranges.Range;
+
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -13,7 +16,9 @@ public class App {
         String Apetecan = "Apetecan";
         System.out.println("Apetecan -> " + iteradores(Apetecan, "a"));
 
+        ejercicioArrayDeque();
     }
+
 
     public static ArrayList<Integer> ejercicio1(int n) {
         var array = new ArrayList<Integer>();
@@ -24,6 +29,7 @@ public class App {
 
         return array;
     }
+
 
     public static String iteradores(String cadena, String letra) {
         var cadena_arraylist = new ArrayList<String>(
@@ -46,5 +52,18 @@ public class App {
         }
 
         return cadena;
+    }
+
+    
+    public static void ejercicioArrayDeque() {
+        ArrayDeque<Integer> stack = new ArrayDeque<Integer>();
+
+        for (int i = 0; i <= 100; i++) {
+            stack.push(i);
+        }
+
+        while (!stack.isEmpty()) {
+            System.out.print(stack.pop() + ", ");
+        }
     }
 }
